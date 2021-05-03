@@ -1,0 +1,17 @@
+RewriteEngine On
+
+RewriteRule ^blog?$ blog.php
+RewriteRule ^index?$ index.php
+
+ Options All -Indexes
+<Files .htaccess>
+		order allow,deny
+		deny from all
+
+
+</Files>
+
+     ServerSignature Off
+  
+
+#ErrorDocument 404 / error.php
