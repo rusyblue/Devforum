@@ -1,8 +1,13 @@
+#ErrorDocument 404 / 404.php
 RewriteEngine On
 
 RewriteRule ^blog?$ blog.php
 RewriteRule ^index?$ index.php
-
+RewriteRule ^python?$ python.php
+RewriteRule ^dashboard?$ dashboard.php
+RewriteRule ^logout?$ logout.php
+RewriteRule ^profil?$ profil.php
+RewriteRule ^forum?$ forum.php
  Options All -Indexes
 <Files .htaccess>
 		order allow,deny
@@ -14,4 +19,3 @@ RewriteRule ^index?$ index.php
      ServerSignature Off
   
 
-#ErrorDocument 404 / error.php

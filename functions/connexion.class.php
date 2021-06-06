@@ -43,6 +43,7 @@ class connexion{
 		$requete = $requete->fetch();
 		$_SESSION['id'] = $requete['id'];
 		$_SESSION['pseudo'] = $this->pseudo;
+		$_SESSION['Avatar'] = $this->Avatar;
 
 		return 1;
 

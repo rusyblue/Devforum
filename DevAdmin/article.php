@@ -1,5 +1,5 @@
 <?php 
-    include_once './functions/database.php';
+    include_once '../functions/database.php';
     $bbd = bbd();
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
         integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
-    <link rel="stylesheet" href="./vendors/assets/css/main.css">
+    <link rel="stylesheet" href="../vendors/assets/css/main.css">
 
     <link rel="icon" type="image/png" href="./vendors/assets/images/logo.png" />
 
@@ -37,58 +37,17 @@
     <!-- <script src="https://threejs.org/build/three.js"></script> -->
 
     <main class="main-wrapper" id="root">
-
-        <nav class="navbar navbar-expand-lg navbar ">
-
-            <div class="navbar-top">
-
-                <ul class=" navbar-top--nav">
-                    <li class=" navbar-top--item">
-                        <a class="nav-link" href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span
-                                class="sr-only"></span></a>
-                    </li>
-                    <li class=" navbar-top--item">
-                        <a class="nav-link" href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                    </li>
-
-                </ul>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
-                <div class="navbar-bottom">
-                    
-                    <ul class=" navbar-top--nav">
-                        <!-- <div class="navbar-bottom--logo">
-                            <a href="/">
-                                <img src="./vendors/assets/images/logo.png" alt="Dev Forum - Logo">
-                            </a>
-                        </div> -->
-                        <li class="nav-item active">
-    <a class="nav-link" href="#">Tutoriels <span class="sr-only">(current)</span></a>
-  </li>
-  <li class="nav-item">
-  <a class="nav-link" href="./blog.php">Blog</a>
-  </li>
-  <li class=" navbar-top--item">
-                        <a class="nav-link" href="/contact.php">Contact</a>
-                    </li>
-                    </ul>
-                    
-                </div>
-                <form class="navbar-bottom--search-form-group" action=" " method="GET">
-    <i class="fa fa-search navbar-bottom--search-icon"></i>
-    <input type="text" class="navbar-bottom--search-form-input"  placeholder="Rechercher un article"  name="recherche">
-</form>
-            </div>
-        </nav>
+ 
         <div class="posts" id="particles-js">
-            <!-- <script src="./Js/particles.js"></script>
+        <a href=" ajouter.php  "class="btn posts-card__link d-flex justify-content-center align-items-center">
+                         <span class="mr-2">
 
-            <script src="./Js/app.js"></script> -->
+                               <?php //echo stripslashes($a ['nomarti'])?>
+                             Ajouter
+                        </span> 
+                             <i class="la la-arrow-right"></i>
+                             </a>
+
             
             <div class="tutorial-banner container" >
                 <div class="row" style="max-width: 100%;height: 100%">
@@ -114,9 +73,9 @@
                 
             </div>
             <ul class="nav nav-tabs posts-tabs">
-                        <!-- <li class="nav-item"> <a class="nav-link" href="/php_">PHP</a> </li> -->
+                        <li class="nav-item"> <a class="nav-link" href="/php_">PHP</a> </li>
                         <li class="nav-item"> <a class="nav-link" href=" ">Javascript</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href=" python.php">Python</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href=" ">PHP</a> </li>
                             </ul>
 
          <div class="posts--content">
@@ -130,6 +89,7 @@
                         $recherche = htmlspecialchars($_GET['recherche']);
                       
                         $envoi = $bbd->query('SELECT  idarti,nomarti,idcat,contenuarti FROM  articles WHERE nomarti  LIKE "%'.$recherche .'%" ORDER BY idarti DESC');
+                        
                     }
                     ?>
                       <?php if ($affichage ->rowCount() > 0 ) { ?>
@@ -148,15 +108,25 @@
                         <?= $a['contenuarti'] ?>
                         </div>
 
-         <a href=" article.php?idarti=<?= $a['idarti'] ?> "class="btn posts-card__link d-flex justify-content-center align-items-center">
+                            <!-- <a href=" edition.php?edit= "class="btn posts-card__link d-flex justify-content-center align-items-center">
                          <span class="mr-2">
 
                                <?php //echo stripslashes($a ['nomarti'])?>
-                               Lire
-                            </span> 
+                              Edition
+                        </span> 
                              <i class="la la-arrow-right"></i>
-                        </a>
+                             </a> -->
 
+                             <a href=" supprimer.php?idarti=<?= $a['idarti'] ?> "class="btn posts-card__link d-flex justify-content-center align-items-center">
+                         <span class="mr-2">
+
+                               <?php //echo stripslashes($a ['nomarti'])?>
+                              Supprimer
+                        </span> 
+                             <i class="la la-arrow-right"></i>
+                             </a>
+                             
+                         
                     </div>
                 </div>
                 

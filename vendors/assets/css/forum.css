@@ -1,0 +1,173 @@
+/* body {
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+
+h5 {
+  background: aliceblue;
+  text-align: center;
+  width: 55%;
+  font-size: 150%;
+  color: #0d62e2;
+}
+
+.btn-default {
+  color: white;
+  background-color: #0d62e2;
+  border-color: black;
+  margin-left: 0;
+  width: 100%;
+}
+
+div#test2 {
+  position: relative;
+  top: -450px;
+}
+
+.auth2 {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #0069ff;
+  display: flex;
+  align-items: center;
+}
+
+.clearfix {
+  text-align: center;
+  margin: 5px;
+}
+
+/* 
+.profile-usertitle {
+  float: left;
+  text-align: left;
+  margin: 10px 0 0 12px;
+}
+
+.profile-usertitle-name {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.profile-usertitle-status {
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 9999px;
+  margin-right: 5px;
+}
+
+.label-success {
+  background-color: #0069ff;
+} */
+.image_outer_container {
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 50%;
+  position: relative;
+  top: 10pt;
+  width: 100px;
+  width: 80px;
+}
+
+.image_inner_container {
+  border-radius: 50%;
+  padding: 5px;
+  background: #0069ff;
+}
+.image_inner_container img {
+  height: 50pt;
+  width: 50pt;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.image_outer_container .green_icon {
+  background-color: #4cd137;
+  position: absolute;
+  right: 3px;
+  bottom: 10px;
+  height: 13pt;
+  width: 13pt;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+@media (max-width: 992px) {
+  .image_outer_container {
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 50%;
+    position: relative;
+    top: 10pt;
+    width: 80px;
+  }
+
+  .collapse:not(.show) {
+    display: flex;
+    top: -50px;
+    position: relative;
+  }
+
+  .tutorial-banner {
+    height: 300px;
+    background-color: #fff;
+    top: -34rem;
+    position: relative;
+  }
+}
+
+div#modfi2 {
+  position: relative;
+  top: -30rem;
+}
+
+.green_icon2 {
+  background-color: blue;
+  position: relative;
+  height: 13pt;
+  width: 13pt;
+  border: 3px solid white;
+  border-radius: 80%;
+  right: -40pt;
+  bottom: -20px;
+}
+
+button#cateboa {
+  width: 300px;
+  height: 100px;
+
+  padding: 50px;
+  border: 1px solid black;
+
+  text-align: center;
+  top: -250px;
+
+  background-color: #031b4e;
+  background-size: cover;
+}
+
+.monter {
+  position: relative;
+  top: -30rem;
+  text-align: center;
+  display: inline-block;
+}
+
+a#modifcat {
+  color: white;
+  text-decoration: none;
+}
+
+a#modifcat:hover {
+  background-color: orange;
+  color: aliceblue;
+  box-shadow: 0 4px 10px hsl(0deg 0% 87% / 44%);
+}

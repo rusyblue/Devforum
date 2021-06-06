@@ -115,32 +115,43 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-8">
                         
+                        <style>
+                        
+                        .ml-auto, .mx-auto {
+                     margin-left: auto!important;
+                              }</style>
                             <div class="col-sm-10 mx-auto">
                                 <div class="div post-content__header">
                                     <div class="post-content__header__image">
-                                    <img src="./vendors/assets/images/Storage/<?= $article['imagearti'] ?> " alt="POO en Python - La méthode __init__">
+                                    <img src="./vendors/assets/images/Storage/<?= $article['imagearti'] ?> " alt=" ">
                                     </div>
 
                                     <h3 class="post-content__header__title"> 
                                        <?=$article['nomarti']; ?>
                                     </h3>
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="https://ivoiredevacademy.com/blog/python" class="posts-card__tag" style="font-size: .75rem;">Python</a>
+                                    <a href=" #" class="posts-card__tag" style="font-size: .75rem;"> <?=$article['nomarti']; ?></a>
 
-                                    <small> <?=$article['heurepost']; ?></small>
+                                    <small> <?=$article['heurepost'];  ?></small>
                                     </div>
                                 </div>
 
                                 <hr>
                                 <div class="post-content">
-                                <h2><b style="">1. Commençons encore avec un rappel</b></h2>
+                                <h2><b style=""> </b></h2 >
                                 <h2><b style=""><br></b></h2>
                                 <h2><span style="font-size: 18px;">Nous allons faire un petit rappel sur deux concepts qu’on a vus précédemment. </span></h2>
                                 <p><span style="font-size: 18px;">On peut voir les détails de ce concept dans le code suivant:</span></p>
-                                <div style="background-color: rgb(15, 17, 26); font-size: 14px; line-height: 19px; white-space: pre;"><span style="color: rgb(166, 172, 205);"><br></span><div style="color: rgb(166, 172, 205);"><span style="color: #a6accd;">    </span><span style="color: #c792ea;">class</span><span style="color: #a6accd;"> </span><span style="color: #ffcb6b;">Student</span><span style="color: #89ddff;">:</span></div><div style="color: rgb(166, 172, 205);"><span style="color: #a6accd;">        </span><span style="color: #89ddff;font-style: italic;">pass</span></div><span style="color: rgb(166, 172, 205);"><br></span><div style="color: rgb(166, 172, 205);"><span style="color: #a6accd;">    john </span><span style="color: #89ddff;">=</span><span style="color: #a6accd;"> </span><span style="color: #82aaff;">Student</span><span style="color: #89ddff;">()</span></div><div style="color: rgb(166, 172, 205);"><span style="color: #a6accd;">    john</span><span style="color: #89ddff;">.</span><span style="color: #f07178;">name</span><span style="color: #a6accd;"> </span><span style="color: #89ddff;">=</span><span style="color: #a6accd;"> </span><span style="color: #89ddff;">"</span><span style="color: #c3e88d;">John</span><span style="color: #89ddff;">"</span></div><div style="color: rgb(166, 172, 205);"><span style="color: #a6accd;">    john</span><span style="color: #89ddff;">.</span><span style="color: #f07178;">age</span><span style="color: #a6accd;"> </span><span style="color: #89ddff;">=</span><span style="color: #a6accd;"> </span><span style="color: #f78c6c;">18</span></div><span style="color: rgb(166, 172, 205);"><br></span><div style=""><span style="color: rgb(166, 172, 205);">    </span><span style="color: rgb(130, 170, 255);">print</span><span style="color: rgb(137, 221, 255);">(</span><span style="color: rgb(130, 170, 255);">john</span><span style="color: rgb(137, 221, 255);">.</span><span style="color: rgb(240, 113, 120);">name</span><span style="color: rgb(137, 221, 255);">)</span><span style="color: rgb(166, 172, 205);"> </span><span style="font-style: italic; color: rgb(255, 255, 255);"># John</span></div><div style=""><span style="color: rgb(166, 172, 205);">    </span><span style="color: rgb(130, 170, 255);">print</span><span style="color: rgb(137, 221, 255);">(</span><span style="color: rgb(130, 170, 255);">john</span><span style="color: rgb(137, 221, 255);">.</span><span style="color: rgb(240, 113, 120);">age</span><span style="color: rgb(137, 221, 255);">)</span><span style="color: rgb(166, 172, 205);"> </span><span style="font-style: italic; color: rgb(255, 255, 255);"># 18</span></div><span style="color: rgb(166, 172, 205);"><br></span><div style="color: rgb(166, 172, 205);"><span style="color: #a6accd;">    </span></div></div>
+                                <div style="background-color: black; color:white; font-size: 14px; line-height: 19px; white-space: pre;">
+                                <?=$article['descriarti']; ?>
                                 </div>
 
                             </div>
+                            
+                            
+                            
+
+                            
                     </div>
 
 
@@ -153,7 +164,7 @@
                                         <h6 class="tutorial--suggestion-list-title">Description</h6>
                                         </div>
                                         <p class="px-4 pb-4">
-                                        <?=$article['descriarti']; ?>
+                                        <?= $article['contenuarti'] ?>
                                             </p>
                                         <div class="post-content--suggestion-list pt-lg-4">
                                             <div class="container">
