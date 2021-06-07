@@ -147,6 +147,273 @@ session_start();
                         </div>
                         
                     </div>
+
+      
+                    <div class="col-lg-6 col-md-12">
+                        <div class="tutorial-header">
+                            <h1 class="tutorial-header--title">Votre théme choisi </h1>
+                            <p class="tutorial-header--desc">
+                            <div class="catselect">
+
+                            <?php
+    // Du coup 
+
+    if (isset($_GET['categorie'])) {
+      $_GET['categorie'] = htmlspecialchars($_GET['categorie']);
+
+
+    ?>
+
+
+<!-- Affichage du catégorie sélectionée  -->
+<button type="button" class="btn btn-success"><?php echo $_GET['categorie']; ?></button>
+
+<!-- <button class="btn  btn-warning" id="cateboa">  </button> -->
+      
+      <a href="addsujet.php?categorie=<?php echo $_GET['categorie'];  ?>">
+      <button class="btn btn" style="background-color:#031b4e; color:white;">
+        Ajouter un sujet <i class="arrow left"></a></i>
+          <!-- <p> Supprimer un sujet <i class="fa fa-trash"></i> -->
+      
+  </button>
+
+
+
+      <!-- Affichage des sujets deja posté par un utilisateur -->
+      <?php
+      $requete = $bbd->prepare('SELECT * FROM sujet WHERE categorie =:categorie ');
+      $requete->execute(array('categorie' => $_GET['categorie']));
+      while ($reponse = $requete->fetch()) {
+
+
+      ?>
+
+
+
+        <button class="btn warning" style=" border: none;
+    color: white;
+    padding: 4px 30px;
+    cursor: pointer;
+    top: -360px;
+    position: relative;
+    text-align: center;
+    color: #ddd;
+    text-transform: capitalize;
+    font-size: 30px;
+    left: 200px;
+    background-color: black;
+                        ">
+          <style>
+ 
+          </style>
+          <h5> <a href="index.php?sujet=<?php echo $reponse['name']; ?>"><?php echo $reponse['name']; ?></a>
+
+          </h5>
+
+        </button>
+
+
+
+      <?php
+      }
+      ?>
+
+    <?php
+    } else  if (isset($_GET['sujet'])) {
+      $_GET['sujet'] = htmlspecialchars($_GET['sujet']);
+    ?>
+      <?php
+      $requete = $bbd->prepare('SELECT *FROM postsujet WHERE sujet = :sujet');
+      $requete->execute(array('sujet' => $_GET['sujet']));
+      while ($reponse = $requete->fetch()) {
+
+        /* //////////////////////////////////////
+
+                Gestion du contenu posté
+
+               //////////////////////////////////////
+        */
+
+        echo '<div class="post">' . $reponse['contenu'] . '</div>';
+        $requete2 = $bbd->prepare('SELECT * FROM blogeurs WHERE id = :id');
+        $requete2->execute(array('id' => $reponse['propri']));
+        $blogeurs = $requete2->fetch();
+
+
+        echo '<div class="circle">' . $_SESSION['pseudo'] . '</div>';
+      }
+
+
+      ?>
+      <style>
+        .circle {
+          height: 65px;
+          width: 65px;
+          background-color:
+            #fff;
+          border-radius: 50%;
+          margin: 10px 300px;
+          top: -320px;
+          position: relative;
+          float: right;
+          /* padding: ; */
+          text-align: center;
+          padding: 20px 1px;
+
+        }
+      </style>
+
+            <div class="container">
+      <form method="POST" action="dashboard?sujet=<?php echo $_GET['sujet'] ?>">
+
+        <textarea name="sujet" id="editor" placeholder="Votre message" class="form-control"></textarea>
+        <input type="hidden" name="name" value="<?php echo $_GET['sujet']; ?>" /><br><br>
+        <button type="submit" class="btn btn-primary" name="envoi">Ajouter à la conversation</button>
+        <h6>Utilisateur Connecté  <?php echo '' . $blogeurs['pseudo'] . ''; ?></h6>
+        <div id="cercle"></div>
+        </div>
+        <style >
+          #cercle {
+ 
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background: ;
+    right: -880px;
+    position: relative;
+    top: -146px;
+}
+
+.h6, h6 {
+  font-size: 13px;
+  position: relative;
+  right: -720px;
+  top: -120px;
+}
+        </style>
+        <?php
+
+        if (isset($erreur)) {
+          echo '<div class="alert alert-warning">' . $erreur . '</div>';
+        }
+
+
+        ?>
+
+      </form>
+
+
+
+      <style>
+        .post {
+          background-color: aliceblue;
+
+          min-height: 50px;
+          margin: auto;
+          margin-top: auto;
+          margin-top: 10px;
+          width: 400px;
+          padding: 10px;
+          top: -270px;
+          position: relative;
+          border: 2px;
+          border-radius: 10px;
+          clear: both;
+          display: table;
+        }
+      </style>
+
+
+      <!-- Affichage du sujet choisi et afficher pour l'utilisateur -->
+
+     
+<style>
+#sujet2 {
+   
+
+    padding: 10px;
+    overflow: none;
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+    top: 150px;
+    top: -250px;
+}
+</style>
+      <!-- Affichage du sujet choisi et afficher pour l'utilisateur -->
+			<button class="btn btn-primary" id="sujet2">
+				<?php echo $_GET['sujet']; ?>
+</button>
+
+
+      <?php
+
+
+      ?>
+
+      <?php
+
+    } else {
+
+      $requete = $bbd->query('SELECT * FROM categories');
+
+      while ($reponse = $requete->fetch()) {
+      ?>
+
+        <div class="monter">
+               <?php 
+
+            //    Gestion de l'affichage des categories
+             
+             $requete = $bbd->query('SELECT * FROM categories');
+             
+             while ($reponse = $requete->fetch()) {
+             ?>
+             
+                 <button class="btn  btn-warning" id="cateboa">
+             
+                   <a href="dashboard?categorie=<?php echo $reponse['name'];   ?>" id="modifcat">   <?php echo $reponse['name']; ?>
+              </a>
+             
+                 </button>
+                 <?php }?>
+                 
+
+                <!-- Fin de Gestion de l'affichage des categories -->
+         </div>
+        <style>
+          .pos {
+
+            position: relative;
+
+            text-align: center;
+
+            box-sizing: flex-box;
+
+            display: contents;
+
+          }
+          /* Style hover des contenus */
+          .btn a:hover {
+    color: black;
+  }
+        </style>
+    <?php
+
+      }
+    }
+
+
+    ?>
+   
+  </div>
+                                <strong class="text-orange">
+                                    <!-- nos articles -->
+                                </strong>.
+                            </p>
+                        </div>
+                        
+                    </div>
                     <div class="col-lg-6 col-md-12 tutorial-illustration--wrapper">
                         <div class="tutorial-illustration">
                             <svg id="a47bc909-72c0-4996-baf1-6f4140acb8df" data-name="Layer 1"
@@ -223,40 +490,10 @@ session_start();
                 
 
             </div>
-            <!-- <ul class="nav nav-tabs posts-tabs">
-              
-                <li class="nav-item"> <a class="nav-link" href=" ">Javascript</a> </li>
-                <li class="nav-item"> <a class="nav-link" href=" python.php">Python</a> </li>
-            </ul> -->
+        
 
-            
-               <div class="monter">
-               <?php 
-               //Gestion de l'affichage des categorie
-             
-             $requete = $bbd->query('SELECT * FROM categories');
-             
-             while ($reponse = $requete->fetch()) {
-             ?>
-             
-                 <button class="btn  btn-warning" id="cateboa">
-             
-                   <a href="dashboard?categorie=<?php echo $reponse['name'];   ?>" id="modifcat">   <?php echo $reponse['name']; ?>
-              </a>
-             
-                 </button>
-                 <?php }?>
-                 </div>
-                
-                               
-             
-             
-             
-             
-             
-             
-
-
+ 
+           
     </main>
 
     <footer class="footer">
@@ -301,7 +538,7 @@ session_start();
                                 </a>
                             </li>
                             <li class="footer__top--social-item">
-                                <a href="  " target="_blank" title="Page Youtube">
+                                <a href=" https://www.youtube.com/channel/UCut1_mfOZjnY0AKJaPi2BXg" target="_blank" title="Page Youtube">
                                     <i class="fa fa-youtube-play"></i>
                                 </a>
                             </li>
@@ -365,9 +602,10 @@ session_start();
                 <div class="copyright">
                     <img src="./vendors/assets/images/logo.png" alt="" class="logo">
                     <span class="copyright-text">
-                        Dev Forum ©
+                        Copyright © Dev Forum
+                       
                         <script> document.write(new Date().getFullYear());</script>
-                        <span class="hide-on-sm"> | All rights reserved</span>
+                        <span class="hide-on-sm"> | Powered by  <a href="">revoultecode</a> </span>
                     </span>
                 </div>
             </div>

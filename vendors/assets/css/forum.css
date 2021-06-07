@@ -171,3 +171,8 @@ a#modifcat:hover {
   color: aliceblue;
   box-shadow: 0 4px 10px hsl(0deg 0% 87% / 44%);
 }
+
+
+#sujetadd {
+  text-align: center;
+}
